@@ -1,4 +1,4 @@
-import { NotImplementedError } from '../extensions/index.js';
+import { ListNode, NotImplementedError } from '../extensions/index.js';
 
 /**
  * Given a singly linked list of integers l and an integer k,
@@ -19,7 +19,15 @@ import { NotImplementedError } from '../extensions/index.js';
  * }
  */
 
-export default function removeKFromList(/* l, k */) {
-  throw new NotImplementedError('Not implemented');
+export default function removeKFromList(l, k) {
+  if(l == null)
+    return null 
+  l.next = removeKFromList(l.next,k)
+  if(l.value === k){
+    return l.next
+  }else{
+    return l
+  }
+  
   // remove line with error and write your code here
 }
